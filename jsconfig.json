@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "jsx": "preserve",
+        "paths": {
+            "@assets/*": [
+                "./src/assets/*"
+            ],
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@/*": [
+                "./src/*"
+            ],
+            "@Algorithms/*": [
+                "./src/components/Algorithms/*"
+            ]
+        }
+    }
+}
