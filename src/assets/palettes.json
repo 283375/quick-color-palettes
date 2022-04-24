@@ -295,5 +295,169 @@
         { "name": "900", "color": "#212121" }
       ]
     }
+  },
+  "Ant Design": {
+    "link": "https://ant.design/docs/spec/colors#Base-Color-Palettes",
+    "colors": {
+      "Dust Red": [
+        { "name": "1", "color": "#fff1f0" },
+        { "name": "2", "color": "#ffccc7" },
+        { "name": "3", "color": "#ffa39e" },
+        { "name": "4", "color": "#ff7875" },
+        { "name": "5", "color": "#ff4d4f" },
+        { "name": "6", "color": "#f5222d" },
+        { "name": "7", "color": "#cf1322" },
+        { "name": "8", "color": "#a8071a" },
+        { "name": "9", "color": "#820014" },
+        { "name": "10", "color": "#5c0011" }
+      ],
+      "Volcano": [
+        { "name": "1", "color": "#fff2e8" },
+        { "name": "2", "color": "#ffd8bf" },
+        { "name": "3", "color": "#ffbb96" },
+        { "name": "4", "color": "#ff9c6e" },
+        { "name": "5", "color": "#ff7a45" },
+        { "name": "6", "color": "#fa541c" },
+        { "name": "7", "color": "#d4380d" },
+        { "name": "8", "color": "#ad2102" },
+        { "name": "9", "color": "#871400" },
+        { "name": "10", "color": "#610b00" }
+      ],
+      "Sunset Orange": [
+        { "name": "1", "color": "#fff7e6" },
+        { "name": "2", "color": "#ffe7ba" },
+        { "name": "3", "color": "#ffd591" },
+        { "name": "4", "color": "#ffc069" },
+        { "name": "5", "color": "#ffa940" },
+        { "name": "6", "color": "#fa8c16" },
+        { "name": "7", "color": "#d46b08" },
+        { "name": "8", "color": "#ad4e00" },
+        { "name": "9", "color": "#873800" },
+        { "name": "10", "color": "#612500" }
+      ],
+      "Calendula Gold": [
+        { "name": "1", "color": "#fffbe6" },
+        { "name": "2", "color": "#fff1b8" },
+        { "name": "3", "color": "#ffe58f" },
+        { "name": "4", "color": "#ffd666" },
+        { "name": "5", "color": "#ffc53d" },
+        { "name": "6", "color": "#faad14" },
+        { "name": "7", "color": "#d48806" },
+        { "name": "8", "color": "#ad6800" },
+        { "name": "9", "color": "#874d00" },
+        { "name": "10", "color": "#613400" }
+      ],
+      "Sunrise Yellow": [
+        { "name": "1", "color": "#feffe6" },
+        { "name": "2", "color": "#ffffb8" },
+        { "name": "3", "color": "#fffb8f" },
+        { "name": "4", "color": "#fff566" },
+        { "name": "5", "color": "#ffec3d" },
+        { "name": "6", "color": "#fadb14" },
+        { "name": "7", "color": "#d4b106" },
+        { "name": "8", "color": "#ad8b00" },
+        { "name": "9", "color": "#876800" },
+        { "name": "10", "color": "#614700" }
+      ],
+      "Lime": [
+        { "name": "1", "color": "#fcffe6" },
+        { "name": "2", "color": "#f4ffb8" },
+        { "name": "3", "color": "#eaff8f" },
+        { "name": "4", "color": "#d3f261" },
+        { "name": "5", "color": "#bae637" },
+        { "name": "6", "color": "#a0d911" },
+        { "name": "7", "color": "#7cb305" },
+        { "name": "8", "color": "#5b8c00" },
+        { "name": "9", "color": "#3f6600" },
+        { "name": "10", "color": "#254000" }
+      ],
+      "Polar Green": [
+        { "name": "1", "color": "#f6ffed" },
+        { "name": "2", "color": "#d9f7be" },
+        { "name": "3", "color": "#b7eb8f" },
+        { "name": "4", "color": "#95de64" },
+        { "name": "5", "color": "#73d13d" },
+        { "name": "6", "color": "#52c41a" },
+        { "name": "7", "color": "#389e0d" },
+        { "name": "8", "color": "#237804" },
+        { "name": "9", "color": "#135200" },
+        { "name": "10", "color": "#092b00" }
+      ],
+      "Cyan": [
+        { "name": "1", "color": "#e6fffb" },
+        { "name": "2", "color": "#b5f5ec" },
+        { "name": "3", "color": "#87e8de" },
+        { "name": "4", "color": "#5cdbd3" },
+        { "name": "5", "color": "#36cfc9" },
+        { "name": "6", "color": "#13c2c2" },
+        { "name": "7", "color": "#08979c" },
+        { "name": "8", "color": "#006d75" },
+        { "name": "9", "color": "#00474f" },
+        { "name": "10", "color": "#002329" }
+      ],
+      "Daybreak Blue": [
+        { "name": "1", "color": "#e6f7ff" },
+        { "name": "2", "color": "#bae7ff" },
+        { "name": "3", "color": "#91d5ff" },
+        { "name": "4", "color": "#69c0ff" },
+        { "name": "5", "color": "#40a9ff" },
+        { "name": "6", "color": "#1890ff" },
+        { "name": "7", "color": "#096dd9" },
+        { "name": "8", "color": "#0050b3" },
+        { "name": "9", "color": "#003a8c" },
+        { "name": "10", "color": "#002766" }
+      ],
+      "Geek Blue": [
+        { "name": "1", "color": "#f0f5ff" },
+        { "name": "2", "color": "#d6e4ff" },
+        { "name": "3", "color": "#adc6ff" },
+        { "name": "4", "color": "#85a5ff" },
+        { "name": "5", "color": "#597ef7" },
+        { "name": "6", "color": "#2f54eb" },
+        { "name": "7", "color": "#1d39c4" },
+        { "name": "8", "color": "#10239e" },
+        { "name": "9", "color": "#061178" },
+        { "name": "10", "color": "#030852" }
+      ],
+      "Golden Purple": [
+        { "name": "1", "color": "#f9f0ff" },
+        { "name": "2", "color": "#efdbff" },
+        { "name": "3", "color": "#d3adf7" },
+        { "name": "4", "color": "#b37feb" },
+        { "name": "5", "color": "#9254de" },
+        { "name": "6", "color": "#722ed1" },
+        { "name": "7", "color": "#531dab" },
+        { "name": "8", "color": "#391085" },
+        { "name": "9", "color": "#22075e" },
+        { "name": "10", "color": "#120338" }
+      ],
+      "Magenta": [
+        { "name": "1", "color": "#fff0f6" },
+        { "name": "2", "color": "#ffd6e7" },
+        { "name": "3", "color": "#ffadd2" },
+        { "name": "4", "color": "#ff85c0" },
+        { "name": "5", "color": "#f759ab" },
+        { "name": "6", "color": "#eb2f96" },
+        { "name": "7", "color": "#c41d7f" },
+        { "name": "8", "color": "#9e1068" },
+        { "name": "9", "color": "#780650" },
+        { "name": "10", "color": "#520339" }
+      ],
+      "Gray": [
+        { "name": "1", "color": "#ffffff"},
+        { "name": "2", "color": "#fafafa"},
+        { "name": "3", "color": "#f5f5f5"},
+        { "name": "4", "color": "#f0f0f0"},
+        { "name": "5", "color": "#d9d9d9"},
+        { "name": "6", "color": "#bfbfbf"},
+        { "name": "7", "color": "#8c8c8c"},
+        { "name": "8", "color": "#595959"},
+        { "name": "9", "color": "#434343"},
+        { "name": "10", "color": "#262626"},
+        { "name": "11", "color": "#1f1f1f"},
+        { "name": "12", "color": "#141414"},
+        { "name": "13", "color": "#000000"}
+      ]
+    }
   }
 }
