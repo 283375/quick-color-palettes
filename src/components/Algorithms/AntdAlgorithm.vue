@@ -16,7 +16,7 @@ import { TinyColor } from '@ctrl/tinycolor'
 import { debounce } from 'lodash'
 
 import ColorGroup from '@components/ColorGroup.vue'
-import generate from './Antd'
+import generate from './AntdAlgorithm'
 
 const primaryMinSaturation = 70 // 主色推荐最小饱和度
 const primaryMinBrightness = 70 // 主色推荐最小亮度

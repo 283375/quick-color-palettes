@@ -1,7 +1,7 @@
 <script setup>
 import { NTabs, NTabPane } from 'naive-ui'
 
-import AntdAlgorithm from './Antd.vue'
+import AntdAlgorithm from './AntdAlgorithm.vue'
 </script>
 
 <template>
