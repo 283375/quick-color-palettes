@@ -6,7 +6,7 @@ import ClipboardJS from 'clipboard'
 import PalettesPane from '@components/Palettes/_PalettesPane.vue'
 import AlgorithmsPane from '@components/Algorithms/_AlgorithmsPane.vue'
 
-const currentTab = ref('palettes')
+const currentTab = ref('Palettes')
 
 const message = useMessage()
 const clipboard = new ClipboardJS('.clipboard-enabled')
@@ -22,10 +22,10 @@ clipboard.on('error', function (e) {
 
 <template>
   <NTabs v-model:value="currentTab" type="card" animated>
-    <NTabPane name="palettes">
+    <NTabPane name="Palettes">
       <PalettesPane />
     </NTabPane>
-    <NTabPane name="algorithms">
+    <NTabPane name="Algorithms">
       <AlgorithmsPane />
     </NTabPane>
   </NTabs>
