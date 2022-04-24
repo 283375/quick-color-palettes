@@ -7,8 +7,12 @@ import palettes from '@assets/palettes.json'
 </script>
 
 <template>
-  <NTabs v-for="(palette, paletteName) in palettes" :key="palette" animated>
-    <NTabPane :name="paletteName" :key="`palette-${paletteName}`">
+  <NTabs animated>
+    <NTabPane
+      v-for="(palette, paletteName) in palettes"
+      :name="paletteName"
+      :key="`palette-${paletteName}`"
+    >
       <template #tab>
         <span v-text="paletteName"></span>
         <NA
