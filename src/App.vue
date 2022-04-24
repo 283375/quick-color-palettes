@@ -1,12 +1,9 @@
 <script setup>
-import { ref } from 'vue'
 import { NTabs, NTabPane, useMessage } from 'naive-ui'
 import ClipboardJS from 'clipboard'
 
 import PalettesPane from '@components/Palettes/_PalettesPane.vue'
 import AlgorithmsPane from '@components/Algorithms/_AlgorithmsPane.vue'
-
-const currentTab = ref('Palettes')
 
 const message = useMessage()
 const clipboard = new ClipboardJS('.clipboard-enabled')
@@ -21,11 +18,11 @@ clipboard.on('error', function (e) {
 </script>
 
 <template>
-  <NTabs v-model:value="currentTab" type="card" animated>
-    <NTabPane name="Palettes">
+  <NTabs type="card" animated>
+    <NTabPane name="Palettes" display-directive="show">
       <PalettesPane />
     </NTabPane>
-    <NTabPane name="Algorithms">
+    <NTabPane name="Algorithms" display-directive="show:lazy">
       <AlgorithmsPane />
     </NTabPane>
   </NTabs>
