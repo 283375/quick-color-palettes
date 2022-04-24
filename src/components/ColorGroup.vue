@@ -19,6 +19,13 @@ const renderedColors = computed(() =>
     .map((e) => ({
       name: `${props.colorName} ${e.name}`,
       colorInstance: new TinyColor(e.color),
+      backgroundCss: `
+        linear-gradient(
+          90deg,
+          ${new TinyColor(e.color).setAlpha(0).toRgbString()} 5%,
+          ${new TinyColor(e.color).setAlpha(0.5).toRgbString()} 10%,
+          ${new TinyColor(e.color).toRgbString()})
+      `,
     }))
 )
 </script>
@@ -39,7 +46,14 @@ const renderedColors = computed(() =>
         }"
       >
         <span style="font-size: 1.2em">{{ color.name }}</span>
-        <span>{{ color.colorInstance.toHexString() }}</span>
+        <span
+          class="color-bar-color-text"
+          :style="{
+            background: color.backgroundCss,
+          }"
+          v-text="color.colorInstance.toHexString()"
+        >
+        </span>
       </div>
     </div>
   </div>
@@ -61,6 +75,7 @@ const renderedColors = computed(() =>
 }
 
 .color-bar-text {
+  position: relative;
   margin: 8px 20px 8px 15px;
   width: 100%;
   display: flex;
@@ -71,6 +86,15 @@ const renderedColors = computed(() =>
 }
 
 .color-bar:hover > .color-bar-text {
-  margin: 8px 15px 8px 30px;
+  margin: 8px 15px 8px 20px;
+}
+
+.color-bar-color-text {
+  position: absolute;
+  width: max-content;
+  padding-left: 20px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 </style>
