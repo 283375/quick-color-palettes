@@ -6,7 +6,7 @@ import AntdAlgorithm from './AntdAlgorithm.vue'
 
 <template>
   <NTabs animated>
-    <NTabPane name="antd">
+    <NTabPane name="Ant Design">
       <AntdAlgorithm />
     </NTabPane>
   </NTabs>
