@@ -76,7 +76,7 @@ const renderedColors = computed(() =>
 
 .color-bar-text {
   position: relative;
-  margin: 8px 20px 8px 15px;
+  margin: 8px 15px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -86,7 +86,7 @@ const renderedColors = computed(() =>
 }
 
 .color-bar:hover > .color-bar-text {
-  margin: 8px 15px 8px 20px;
+  margin-left: 20px;
 }
 
 .color-bar-color-text {
@@ -94,7 +94,12 @@ const renderedColors = computed(() =>
   width: max-content;
   padding-left: 20px;
   top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  right: 5px;
+  transform: translate(0, -50%);
+  transition: transform 0.6s cubic-bezier(0, 1, 0.5, 1.5);
+}
+
+.color-bar:hover:deep(.color-bar-color-text) {
+  transform: translate(10px, -50%);
 }
 </style>
