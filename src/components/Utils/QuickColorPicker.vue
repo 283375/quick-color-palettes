@@ -1,41 +1,58 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { NColorPicker, NForm, NFormItem } from 'naive-ui'
+import { NColorPicker, NList, NListItem, NText, NButton } from 'naive-ui'
+import { Copy24Regular } from '@vicons/fluent'
 import { TinyColor } from '@ctrl/tinycolor'
-
-import QuickColorPickerInputGroup from './QuickColorPickerInputGroup.vue'
 
 const currentColor = ref('#00A2E8FF')
 const currentColorInstance = computed(() => new TinyColor(currentColor.value))
 
 const currentColorValues = computed(() => ({
-  rgb: currentColorInstance.value.toRgbString(),
-  hex: currentColorInstance.value.toHexString(),
-  hex8: currentColorInstance.value.toHex8String(),
-  hsv: currentColorInstance.value.toHsvString(),
-  hsl: currentColorInstance.value.toHslString(),
+  RGB: currentColorInstance.value.toRgbString(),
+  HEX: currentColorInstance.value.toHexString(),
+  HEX8: currentColorInstance.value.toHex8String(),
+  HSV: currentColorInstance.value.toHsvString(),
+  HSL: currentColorInstance.value.toHslString(),
 }))
+
+const handleSelect = (e) => {
+  const selection = window.getSelection()
+  selection.removeAllRanges()
+  const range = document.createRange()
+  range.selectNodeContents(e.target)
+  selection.addRange(range)
+}
 </script>
 
 <template>
   <div style="max-width: 500px">
     <NColorPicker v-model:value="currentColor" placement="right" />
-    <NForm label-placement="left" label-width="auto">
-      <NFormItem label="RGB">
-        <QuickColorPickerInputGroup :value="currentColorValues.rgb" />
-      </NFormItem>
-      <NFormItem label="HEX">
-        <QuickColorPickerInputGroup :value="currentColorValues.hex" />
-      </NFormItem>
-      <NFormItem label="HEX8">
-        <QuickColorPickerInputGroup :value="currentColorValues.hex8" />
-      </NFormItem>
-      <NFormItem label="HSV">
-        <QuickColorPickerInputGroup :value="currentColorValues.hsv" />
-      </NFormItem>
-      <NFormItem label="HSL">
-        <QuickColorPickerInputGroup :value="currentColorValues.hsl" />
-      </NFormItem>
-    </NForm>
+    <NList label-placement="left" label-width="auto">
+      <NListItem
+        v-for="(color, colorLabel) in currentColorValues"
+        :key="`qcp-${colorLabel}`"
+        :label="colorLabel"
+      >
+        <template #prefix>
+          {{ colorLabel }}
+        </template>
+
+        <NText @click="handleSelect">{{ color }}</NText>
+
+        <template #suffix>
+          <NButton
+            secondary
+            type="info"
+            class="clipboard-enabled"
+            :data-clipboard-text="color"
+          >
+            <template #icon>
+              <Copy24Regular />
+            </template>
+            Copy
+          </NButton>
+        </template>
+      </NListItem>
+    </NList>
   </div>
 </template>
