@@ -12,3 +12,8 @@ Fetch most of the colors you want from a single click.
 ## Supported Color Generate Algorithms
 
 - [Ant Design palette generation tool](https://ant.design/docs/spec/colors#Palette-Generation-Tool)
+
+## Coming S∞n
+
+- Settings(override dark/light theme, default color format[rgb/hex/hsl/...], etc.)
+- Custom Palettes
