@@ -71,46 +71,46 @@ const colorSuggestions = computed(() => {
 </script>
 
 <template>
-  <NGrid cols="1 m:2" responsive="screen" :x-gap="10" :y-gap="10">
-    <NGridItem>
-      <NForm>
-        <NAlert type="info" style="margin-bottom: 1em">
-          <NA
+  <n-grid cols="1 m:2" responsive="screen" :x-gap="10" :y-gap="10">
+    <n-grid-item>
+      <n-form>
+        <n-alert type="info" style="margin-bottom: 1em">
+          <n-a
             href="https://ant.design/docs/spec/colors#Palette-Generation-Tool"
             target="_blank"
           >
             Ant Design - Palette generation tool
-          </NA>
-        </NAlert>
+          </n-a>
+        </n-alert>
 
-        <NFormItem label="Primary color">
-          <NColorPicker
+        <n-form-item label="Primary color">
+          <n-color-picker
             v-model:value="options.primaryColor"
             style="width: 350px"
           />
-        </NFormItem>
-        <NFormItem label="Enable dark theme">
-          <NSwitch v-model:value="options.darkTheme" />
-        </NFormItem>
-        <NCollapseTransition v-show="options.darkTheme">
-          <NFormItem label="Dark theme background color">
-            <NColorPicker
+        </n-form-item>
+        <n-form-item label="Enable dark theme">
+          <n-switch v-model:value="options.darkTheme" />
+        </n-form-item>
+        <n-collapse-transition v-show="options.darkTheme">
+          <n-form-item label="Dark theme background color">
+            <n-color-picker
               v-model:value="options.backgroundColor"
               style="width: 350px"
             />
-          </NFormItem>
-        </NCollapseTransition>
-      </NForm>
-    </NGridItem>
-    <NGridItem>
-      <NSpace vertical>
-        <NCollapseTransition v-show="colorSuggestions">
-          <NAlert type="warning" title="Primary color suggestions">
+          </n-form-item>
+        </n-collapse-transition>
+      </n-form>
+    </n-grid-item>
+    <n-grid-item>
+      <n-space vertical>
+        <n-collapse-transition v-show="colorSuggestions">
+          <n-alert type="warning" title="Primary color suggestions">
             <div style="white-space: pre-wrap" v-text="colorSuggestions"></div>
-          </NAlert>
-        </NCollapseTransition>
+          </n-alert>
+        </n-collapse-transition>
         <ColorGroup :colors="computedColors" />
-      </NSpace>
-    </NGridItem>
-  </NGrid>
+      </n-space>
+    </n-grid-item>
+  </n-grid>
 </template>

@@ -5,9 +5,9 @@ import QuickColorPicker from './QuickColorPicker.vue'
 </script>
 
 <template>
-  <NTabs>
-    <NTabPane name="Quick color picker">
-      <QuickColorPicker />
-    </NTabPane>
-  </NTabs>
+  <n-tabs>
+    <n-tab-pane name="Quick color picker">
+      <quick-color-picker />
+    </n-tab-pane>
+  </n-tabs>
 </template>

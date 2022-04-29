@@ -117,17 +117,17 @@ const handleSelect = (e) => {
 
 <template>
   <div>
-    <NGrid cols="1 m:2" responsive="screen" :x-gap="12" :y-gap="12">
-      <NGridItem>
-        <NCard>
+    <n-grid cols="1 m:2" responsive="screen" :x-gap="12" :y-gap="12">
+      <n-grid-item>
+        <n-card>
           <template #header>
             <span>Quick Actions</span>
             <span style="font-size: 0.6em; margin-left: 1em">
-              Powered by <NText code>@ctrl/tinycolor</NText> ❤
+              Powered by <n-text code>@ctrl/tinycolor</n-text> ❤
             </span>
           </template>
-          <NGrid cols="1 200:2" :x-gap="5" :y-gap="10">
-            <NGridItem
+          <n-grid cols="1 200:2" :x-gap="5" :y-gap="10">
+            <n-grid-item
               v-for="action in [
                 'lighten',
                 'darken',
@@ -138,49 +138,49 @@ const handleSelect = (e) => {
                 'desaturate',
               ]"
             >
-              <NInputGroup>
-                <NInputNumber
+              <n-input-group>
+                <n-input-number
                   v-model:value="quickActionsModels[action]"
                   :min="0"
                   :max="100"
                 />
-                <NButton @click="quickActions[action]()">
+                <n-button @click="quickActions[action]()">
                   {{ action.replace(action[0], action[0].toUpperCase()) }}
-                </NButton>
-              </NInputGroup>
-            </NGridItem>
-            <NGridItem>
-              <NInputGroup>
-                <NInputNumber
+                </n-button>
+              </n-input-group>
+            </n-grid-item>
+            <n-grid-item>
+              <n-input-group>
+                <n-input-number
                   v-model:value="quickActionsModels.spin"
                   :min="-360"
                   :max="360"
                 />
-                <NButton @click="quickActions.spin()">Spin</NButton>
-              </NInputGroup>
-            </NGridItem>
-            <NGridItem>
-              <NInputGroup>
-                <NColorPicker v-model:value="quickActionsModels.mix" />
-                <NButton @click="quickActions.mix()">Mix</NButton>
-              </NInputGroup>
-            </NGridItem>
-            <NGridItem>
-              <NSpace justify="space-between">
-                <NButton @click="quickActions.greyscale()">Greyscale</NButton>
-                <NButton type="warning" @click="randomColor()">
+                <n-button @click="quickActions.spin()">Spin</n-button>
+              </n-input-group>
+            </n-grid-item>
+            <n-grid-item>
+              <n-input-group>
+                <n-color-picker v-model:value="quickActionsModels.mix" />
+                <n-button @click="quickActions.mix()">Mix</n-button>
+              </n-input-group>
+            </n-grid-item>
+            <n-grid-item>
+              <n-space justify="space-between">
+                <n-button @click="quickActions.greyscale()">Greyscale</n-button>
+                <n-button type="warning" @click="randomColor()">
                   Feeling Lucky!
-                </NButton>
-              </NSpace>
-            </NGridItem>
-            <NGridItem span="2">
-              <NSpace align="center">
+                </n-button>
+              </n-space>
+            </n-grid-item>
+            <n-grid-item span="2">
+              <n-space align="center">
                 <span>History</span>
-                <NText depth="3" v-if="colorHistory.length === 0">
+                <n-text depth="3" v-if="colorHistory.length === 0">
                   <i>Nothing here...</i>
-                </NText>
+                </n-text>
                 <template v-for="colorInstance in colorHistory">
-                  <NTooltip>
+                  <n-tooltip>
                     <template #trigger>
                       <div
                         class="color-history-block"
@@ -190,33 +190,33 @@ const handleSelect = (e) => {
                       ></div>
                     </template>
                     {{ colorInstance.toString(colorInstance.format) }}
-                    <NButton
+                    <n-button
                       size="small"
                       type="warning"
                       @click="currentColorInstance = colorInstance"
                     >
                       Restore
-                    </NButton>
-                  </NTooltip>
+                    </n-button>
+                  </n-tooltip>
                 </template>
-              </NSpace>
-            </NGridItem>
-          </NGrid>
-        </NCard>
-        <NCard>
+              </n-space>
+            </n-grid-item>
+          </n-grid>
+        </n-card>
+        <n-card>
           <template #header>Color</template>
-          <NColorPicker v-model:value="currentColor" placement="top-end" />
-        </NCard>
-      </NGridItem>
-      <NGridItem>
-        <NCard>
+          <n-color-picker v-model:value="currentColor" placement="top-end" />
+        </n-card>
+      </n-grid-item>
+      <n-grid-item>
+        <n-card>
           <template #header>Color Details</template>
           <div class="grid">
             <template
               v-for="(color, colorLabel) in currentColorValues"
               :key="`qcp-${colorLabel}`"
             >
-              <NButton
+              <n-button
                 secondary
                 type="info"
                 size="small"
@@ -224,11 +224,11 @@ const handleSelect = (e) => {
                 :data-clipboard-text="color"
               >
                 <template #icon>
-                  <Copy24Regular />
+                  <copy24-regular />
                 </template>
                 Copy {{ colorLabel }}
-              </NButton>
-              <NText @click="handleSelect">{{ color }}</NText>
+              </n-button>
+              <n-text @click="handleSelect">{{ color }}</n-text>
             </template>
 
             <template v-for="(details, detailsLabel) in currentColorDetails">
@@ -236,9 +236,9 @@ const handleSelect = (e) => {
               <span v-text="details"></span>
             </template>
           </div>
-        </NCard>
-      </NGridItem>
-    </NGrid>
+        </n-card>
+      </n-grid-item>
+    </n-grid>
   </div>
 </template>
 

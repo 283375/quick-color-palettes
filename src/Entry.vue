@@ -18,13 +18,13 @@ const currentTheme = computed(() =>
 </script>
 
 <template>
-  <NConfigProvider :theme="currentTheme">
-    <NMessageProvider>
-      <NLayout style="min-height: 100vh">
-        <NLayoutContent :content-style="{ padding: '15px' }">
+  <n-config-provider :theme="currentTheme">
+    <n-message-provider>
+      <n-layout style="min-height: 100vh">
+        <n-layout-content :content-style="{ padding: '15px' }">
           <App />
-        </NLayoutContent>
-      </NLayout>
-    </NMessageProvider>
-  </NConfigProvider>
+        </n-layout-content>
+      </n-layout>
+    </n-message-provider>
+  </n-config-provider>
 </template>

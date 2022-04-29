@@ -19,15 +19,15 @@ clipboard.on('error', function (e) {
 </script>
 
 <template>
-  <NTabs type="card" animated>
-    <NTabPane name="Palettes" display-directive="show">
+  <n-tabs type="card" animated>
+    <n-tab-pane name="Palettes" display-directive="show">
       <PalettesPane />
-    </NTabPane>
-    <NTabPane name="Algorithms" display-directive="show:lazy">
+    </n-tab-pane>
+    <n-tab-pane name="Algorithms" display-directive="show:lazy">
       <AlgorithmsPane />
-    </NTabPane>
-    <NTabPane name="Utils" display-directive="show:lazy">
+    </n-tab-pane>
+    <n-tab-pane name="Utils" display-directive="show:lazy">
       <UtilsPane />
-    </NTabPane>
-  </NTabs>
+    </n-tab-pane>
+  </n-tabs>
 </template>

@@ -5,9 +5,9 @@ import AntdAlgorithm from './AntdAlgorithm.vue'
 </script>
 
 <template>
-  <NTabs animated>
-    <NTabPane name="Ant Design">
+  <n-tabs animated>
+    <n-tab-pane name="Ant Design">
       <AntdAlgorithm />
-    </NTabPane>
-  </NTabs>
+    </n-tab-pane>
+  </n-tabs>
 </template>
