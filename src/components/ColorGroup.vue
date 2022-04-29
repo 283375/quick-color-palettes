@@ -11,45 +11,105 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  horizontal: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const renderedColors = computed(() =>
   props.colors
     .filter((e) => new TinyColor(e.color).isValid)
-    .map((e) => ({
-      name: `${props.colorName} ${e.name}`,
-      colorInstance: new TinyColor(e.color),
-      backgroundCss: `
+    .map((e) => {
+      const instance = new TinyColor(e.color)
+      let name = ''
+      if (!props.horizontal) name += `${props.colorName} `
+      return {
+        name: (name += e.name),
+        colorInstance: instance,
+        textColor: instance.getLuminance() > 0.3 ? '#000' : '#fff',
+        textSecondaryColor: instance.getLuminance() > 0.3 ? '#303133' : '#fff',
+        textBackgroundCss: `
         linear-gradient(
-          90deg,
-          ${new TinyColor(e.color).setAlpha(0).toRgbString()} 5%,
-          ${new TinyColor(e.color).setAlpha(0.5).toRgbString()} 10%,
-          ${new TinyColor(e.color).toRgbString()})
+          ${props.horizontal ? '0deg' : '90deg'},
+          ${instance.clone().setAlpha(0).toRgbString()} 5%,
+          ${instance.clone().setAlpha(0.5).toRgbString()} 10%,
+          ${instance.toRgbString()})
       `,
-    }))
+      }
+    })
 )
+
+const colorBarContainerStyle = computed(() => {
+  const style = {
+    width: '100%',
+    height: props.horizontal ? '70px' : '100%',
+    display: 'grid',
+  }
+  const gridRowCol = `repeat(${props.colors.length}, minmax(max-content, 1fr))`
+  props.horizontal
+    ? (style.gridTemplateColumns = gridRowCol)
+    : (style.gridTemplateRows = gridRowCol)
+  return style
+})
+
+const colorBarStyle = computed(() => {
+  const style = {
+    width: props.horizontal ? '100%' : '90%',
+    hoverWidth: props.horizontal ? '100%' : '97.5%',
+    height: props.horizontal ? '60px' : '100%',
+    hoverHeight: props.horizontal ? '70px' : '100%',
+    hoverBorderRadius: props.horizontal ? '0 0 10px 10px' : '0 10px 10px 0',
+    position: 'relative',
+    cursor: 'pointer',
+    transition: 'border-radius 0.6s, width 0.4s, height 0.4s',
+    transitionTimingFunction: 'cubic-bezier(0.1, 1.4, 0.7, 1.35)',
+  }
+  return style
+})
+
+const colorBarTextContainerStyle = computed(() => ({
+  margin: props.horizontal ? '5px' : '10px 15px',
+  hoverMargin: props.horizontal ? '15px 5px 5px 5px' : '10px 5px 10px 25px',
+  display: 'flex',
+  flexDirection: props.horizontal ? 'column' : 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  transition: 'margin 0.5s cubic-bezier(0.1, 1.4, 0.7, 1.35)',
+}))
+
+const colorBarTextColorStyle = computed(() => ({
+  paddingRight: props.horizontal ? '' : '10px',
+  hoverPaddingRight: props.horizontal ? '' : '',
+  transition: 'padding 0.5s cubic-bezier(0.1, 1.4, 0.7, 1.35)',
+}))
 </script>
 
 <template>
-  <div v-for="color in renderedColors" :key="color.name">
+  <h3 v-if="horizontal" v-text="colorName" style="margin: 0.5em 0 0.2em 0"></h3>
+  <div class="color-bar-container" :style="colorBarContainerStyle">
     <div
+      v-for="color in renderedColors"
+      :key="`${colorName}-${color.name}`"
       class="color-bar clipboard-enabled"
       :style="{
         backgroundColor: color.colorInstance.toHexString(),
+        ...colorBarStyle,
       }"
       :data-clipboard-text="color.colorInstance.toHexString()"
     >
-      <div
-        class="color-bar-text"
-        :style="{
-          color: color.colorInstance.getLuminance() > 0.3 ? '#000' : '#fff',
-        }"
-      >
-        <span style="font-size: 1.2em">{{ color.name }}</span>
+      <div class="color-bar-text-container" :style="colorBarTextContainerStyle">
         <span
-          class="color-bar-color-text"
+          :style="{ fontSize: '1.2em', color: color.textColor }"
+          v-text="color.name"
+        >
+        </span>
+        <span
+          class="color-bar-text-color"
           :style="{
-            background: color.backgroundCss,
+            background: color.textBackgroundCss,
+            color: color.textSecondaryColor,
+            ...colorBarTextColorStyle
           }"
           v-text="color.colorInstance.toHexString()"
         >
@@ -60,46 +120,17 @@ const renderedColors = computed(() =>
 </template>
 
 <style scoped>
-.color-bar {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  transition-timing-function: cubic-bezier(0.1, 1.4, 0.7, 1.35);
-  transition: border-radius 0.6s, width 0.4s, background 0.3s ease;
-}
-
 .color-bar:hover {
-  width: 97.5%;
-  border-radius: 0 10px 10px 0;
+  width: v-bind('colorBarStyle.hoverWidth') !important;
+  height: v-bind('colorBarStyle.hoverHeight') !important;
+  border-radius: v-bind('colorBarStyle.hoverBorderRadius');
 }
 
-.color-bar-text {
-  position: relative;
-  margin: 8px 15px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: margin 0.6s;
-  transition-timing-function: cubic-bezier(0.1, 1.4, 0.7, 1.35);
+.color-bar:hover > .color-bar-text-container {
+  margin: v-bind('colorBarTextContainerStyle.hoverMargin') !important;
 }
 
-.color-bar:hover > .color-bar-text {
-  margin-left: 20px;
-}
-
-.color-bar-color-text {
-  position: absolute;
-  width: max-content;
-  padding-left: 20px;
-  top: 50%;
-  right: 5px;
-  transform: translate(0, -50%);
-  transition: transform 0.6s cubic-bezier(0, 1, 0.5, 1.5);
-}
-
-.color-bar:hover:deep(.color-bar-color-text) {
-  transform: translate(10px, -50%);
+.color-bar:hover:deep(.color-bar-text-color) {
+  padding-right: v-bind('colorBarTextColorStyle.hoverPaddingRight');
 }
 </style>

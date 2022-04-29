@@ -24,12 +24,20 @@ import palettes from '@assets/palettes.json'
           <n-icon><Open24Regular /></n-icon>
         </n-a>
       </template>
-      <n-grid :x-gap="2" :y-gap="10" cols="1 500:2 750:3 1000:4">
+      <n-grid
+        :x-gap="2"
+        :y-gap="10"
+        :cols="palette.horizontal ? '1 1600:2' : '1 500:2 750:3 1000:4'"
+      >
         <n-grid-item
           v-for="(colorGroup, colorGroupName) in palettes[paletteName].colors"
           :key="`${paletteName}-${colorGroupName}`"
         >
-          <color-group :colors="colorGroup" :color-name="colorGroupName" />
+          <color-group
+            :colors="colorGroup"
+            :color-name="colorGroupName"
+            :horizontal="palette.horizontal"
+          />
         </n-grid-item>
       </n-grid>
     </n-tab-pane>
