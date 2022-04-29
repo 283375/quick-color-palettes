@@ -1,8 +1,7 @@
 <script setup>
-import { computed, ref, reactive } from 'vue'
+import { computed, ref, reactive, watch } from 'vue'
 import {
   NCard,
-  NCode,
   NColorPicker,
   NSpace,
   NText,
@@ -11,18 +10,27 @@ import {
   NGridItem,
   NInputNumber,
   NInputGroup,
+  NTooltip,
 } from 'naive-ui'
 import { Copy24Regular } from '@vicons/fluent'
-import { TinyColor } from '@ctrl/tinycolor'
+import { TinyColor, random as randomTinyColor } from '@ctrl/tinycolor'
 
 const currentColorInstance = ref(new TinyColor('#00A2E8FF'))
-const currentColorFormat = ref('hex8')
 const currentColor = computed({
-  get: () => currentColorInstance.value.toString(currentColorFormat.value),
+  get: () =>
+    currentColorInstance.value.toString(currentColorInstance.value.format),
   set: (c) => {
     currentColorInstance.value = new TinyColor(c)
-    currentColorFormat.value = currentColorInstance.value.format
   },
+})
+const colorHistory = ref([])
+
+const randomColor = () => (currentColorInstance.value = randomTinyColor())
+
+watch(currentColorInstance, (newIns, oldIns) => {
+  if (newIns.equals(oldIns)) return
+  colorHistory.value.push(newIns)
+  if (colorHistory.value.length === 10) colorHistory.value.shift()
 })
 
 const currentColorValues = computed(() => ({
@@ -37,7 +45,7 @@ const currentColorValues = computed(() => ({
 const currentColorDetails = computed(() => ({
   Brightness: currentColorInstance.value.getBrightness(),
   Luminance: currentColorInstance.value.getLuminance(),
-  is: currentColorInstance.value.isDark() ? 'Dark' : 'Light',
+  'Dark/Light': currentColorInstance.value.isDark() ? 'Dark' : 'Light',
   onBackground: currentColorInstance.value.onBackground(),
 }))
 
@@ -115,7 +123,7 @@ const handleSelect = (e) => {
           <template #header>
             <span>Quick Actions</span>
             <span style="font-size: 0.6em; margin-left: 1em">
-              Powered by <NCode>@ctrl/tinycolor</NCode> ❤
+              Powered by <NText code>@ctrl/tinycolor</NText> ❤
             </span>
           </template>
           <NGrid cols="1 200:2" :x-gap="5" :y-gap="10">
@@ -158,44 +166,98 @@ const handleSelect = (e) => {
               </NInputGroup>
             </NGridItem>
             <NGridItem>
-              <NButton @click="quickActions.greyscale()">Greyscale</NButton>
+              <NSpace justify="space-between">
+                <NButton @click="quickActions.greyscale()">Greyscale</NButton>
+                <NButton type="warning" @click="randomColor()">
+                  Feeling Lucky!
+                </NButton>
+              </NSpace>
+            </NGridItem>
+            <NGridItem span="2">
+              <NSpace align="center">
+                <span>History</span>
+                <NText depth="3" v-if="colorHistory.length === 0">
+                  <i>Nothing here...</i>
+                </NText>
+                <template v-for="colorInstance in colorHistory">
+                  <NTooltip>
+                    <template #trigger>
+                      <div
+                        class="color-history-block"
+                        :style="{
+                          backgroundColor: colorInstance.toRgbString(),
+                        }"
+                      ></div>
+                    </template>
+                    {{ colorInstance.toString(colorInstance.format) }}
+                    <NButton
+                      size="small"
+                      type="warning"
+                      @click="currentColorInstance = colorInstance"
+                    >
+                      Restore
+                    </NButton>
+                  </NTooltip>
+                </template>
+              </NSpace>
             </NGridItem>
           </NGrid>
         </NCard>
-        <NColorPicker v-model:value="currentColor" placement="top-end" />
+        <NCard>
+          <template #header>Color</template>
+          <NColorPicker v-model:value="currentColor" placement="top-end" />
+        </NCard>
       </NGridItem>
       <NGridItem>
-        <NSpace vertical>
-          <NSpace
-            v-for="(color, colorLabel) in currentColorValues"
-            :key="`qcp-${colorLabel}`"
-            justify="space-between"
-            style="width: 100%"
-          >
-            <div>
-              {{ colorLabel }}
-            </div>
-            <NText @click="handleSelect">{{ color }}</NText>
-            <NButton
-              secondary
-              type="info"
-              class="clipboard-enabled"
-              :data-clipboard-text="color"
+        <NCard>
+          <template #header>Color Details</template>
+          <div class="grid">
+            <template
+              v-for="(color, colorLabel) in currentColorValues"
+              :key="`qcp-${colorLabel}`"
             >
-              <template #icon>
-                <Copy24Regular />
-              </template>
-              Copy
-            </NButton>
-          </NSpace>
+              <NButton
+                secondary
+                type="info"
+                size="small"
+                class="clipboard-enabled"
+                :data-clipboard-text="color"
+              >
+                <template #icon>
+                  <Copy24Regular />
+                </template>
+                Copy {{ colorLabel }}
+              </NButton>
+              <NText @click="handleSelect">{{ color }}</NText>
+            </template>
 
-          <div v-for="(details, detailsLabel) in currentColorDetails">
-            <span v-text="detailsLabel"></span>
-            <span v-text="': '"></span>
-            <span v-text="details"></span>
+            <template v-for="(details, detailsLabel) in currentColorDetails">
+              <span v-text="`${detailsLabel}`"></span>
+              <span v-text="details"></span>
+            </template>
           </div>
-        </NSpace>
+        </NCard>
       </NGridItem>
     </NGrid>
   </div>
 </template>
+
+<style scoped>
+.color-history-block {
+  width: 25px;
+  height: 25px;
+}
+
+.grid {
+  display: grid;
+  grid: auto-flow / max-content auto;
+  row-gap: 0.5em;
+  column-gap: 0.75em;
+  align-items: center;
+}
+
+.grid > *:nth-child(odd) {
+  font-weight: bold;
+  text-align: right;
+}
+</style>
