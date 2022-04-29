@@ -444,19 +444,19 @@
         { "name": "10", "color": "#520339" }
       ],
       "Gray": [
-        { "name": "1", "color": "#ffffff"},
-        { "name": "2", "color": "#fafafa"},
-        { "name": "3", "color": "#f5f5f5"},
-        { "name": "4", "color": "#f0f0f0"},
-        { "name": "5", "color": "#d9d9d9"},
-        { "name": "6", "color": "#bfbfbf"},
-        { "name": "7", "color": "#8c8c8c"},
-        { "name": "8", "color": "#595959"},
-        { "name": "9", "color": "#434343"},
-        { "name": "10", "color": "#262626"},
-        { "name": "11", "color": "#1f1f1f"},
-        { "name": "12", "color": "#141414"},
-        { "name": "13", "color": "#000000"}
+        { "name": "1", "color": "#ffffff" },
+        { "name": "2", "color": "#fafafa" },
+        { "name": "3", "color": "#f5f5f5" },
+        { "name": "4", "color": "#f0f0f0" },
+        { "name": "5", "color": "#d9d9d9" },
+        { "name": "6", "color": "#bfbfbf" },
+        { "name": "7", "color": "#8c8c8c" },
+        { "name": "8", "color": "#595959" },
+        { "name": "9", "color": "#434343" },
+        { "name": "10", "color": "#262626" },
+        { "name": "11", "color": "#1f1f1f" },
+        { "name": "12", "color": "#141414" },
+        { "name": "13", "color": "#000000" }
       ]
     }
   },
@@ -464,59 +464,59 @@
     "link": "https://element-plus.gitee.io/en-US/component/color.html",
     "colors": {
       "Brand Color": [
-        {"name": "Base", "color": "#409eff"},
-        {"name": "1", "color": "rgb(51, 126, 204)"},
-        {"name": "2", "color": "rgb(121, 187, 255)"},
-        {"name": "3", "color": "rgb(160, 207, 255)"},
-        {"name": "4", "color": "rgb(198, 226, 255)"},
-        {"name": "5", "color": "rgb(217, 236, 255)"},
-        {"name": "6", "color": "rgb(236, 245, 255)"}
+        { "name": "Base", "color": "#409eff" },
+        { "name": "1", "color": "rgb(51, 126, 204)" },
+        { "name": "2", "color": "rgb(121, 187, 255)" },
+        { "name": "3", "color": "rgb(160, 207, 255)" },
+        { "name": "4", "color": "rgb(198, 226, 255)" },
+        { "name": "5", "color": "rgb(217, 236, 255)" },
+        { "name": "6", "color": "rgb(236, 245, 255)" }
       ],
       "Success": [
-        {"name": "Base", "color": "#67c23a"},
-        {"name": "1", "color": "rgb(82, 155, 46)"},
-        {"name": "2", "color": "rgb(149, 212, 117)"},
-        {"name": "3", "color": "rgb(179, 225, 157)"},
-        {"name": "4", "color": "rgb(209, 237, 196)"},
-        {"name": "5", "color": "rgb(225, 243, 216)"},
-        {"name": "6", "color": "rgb(240, 249, 235)"}
+        { "name": "Base", "color": "#67c23a" },
+        { "name": "1", "color": "rgb(82, 155, 46)" },
+        { "name": "2", "color": "rgb(149, 212, 117)" },
+        { "name": "3", "color": "rgb(179, 225, 157)" },
+        { "name": "4", "color": "rgb(209, 237, 196)" },
+        { "name": "5", "color": "rgb(225, 243, 216)" },
+        { "name": "6", "color": "rgb(240, 249, 235)" }
       ],
       "Warning": [
-        {"name": "Base", "color": "#e6a23c"},
-        {"name": "1", "color": "rgb(184, 130, 48)"},
-        {"name": "2", "color": "rgb(238, 190, 119)"},
-        {"name": "3", "color": "rgb(243, 209, 158)"},
-        {"name": "4", "color": "rgb(248, 227, 197)"},
-        {"name": "5", "color": "rgb(250, 236, 216)"},
-        {"name": "6", "color": "rgb(253, 246, 236)"}
+        { "name": "Base", "color": "#e6a23c" },
+        { "name": "1", "color": "rgb(184, 130, 48)" },
+        { "name": "2", "color": "rgb(238, 190, 119)" },
+        { "name": "3", "color": "rgb(243, 209, 158)" },
+        { "name": "4", "color": "rgb(248, 227, 197)" },
+        { "name": "5", "color": "rgb(250, 236, 216)" },
+        { "name": "6", "color": "rgb(253, 246, 236)" }
       ],
       "Danger": [
-        {"name": "Base", "color": "#f56c6c"},
-        {"name": "1", "color": "rgb(196, 86, 86)"},
-        {"name": "2", "color": "rgb(248, 152, 152)"},
-        {"name": "3", "color": "rgb(250, 182, 182)"},
-        {"name": "4", "color": "rgb(252, 211, 211)"},
-        {"name": "5", "color": "rgb(253, 226, 226)"},
-        {"name": "6", "color": "rgb(254, 240, 240)"}
+        { "name": "Base", "color": "#f56c6c" },
+        { "name": "1", "color": "rgb(196, 86, 86)" },
+        { "name": "2", "color": "rgb(248, 152, 152)" },
+        { "name": "3", "color": "rgb(250, 182, 182)" },
+        { "name": "4", "color": "rgb(252, 211, 211)" },
+        { "name": "5", "color": "rgb(253, 226, 226)" },
+        { "name": "6", "color": "rgb(254, 240, 240)" }
       ],
       "Info": [
-        {"name": "Base", "color": "#909399"},
-        {"name": "1", "color": "rgb(115, 118, 122)"},
-        {"name": "2", "color": "rgb(177, 179, 184)"},
-        {"name": "3", "color": "rgb(200, 201, 204)"},
-        {"name": "4", "color": "rgb(222, 223, 224)"},
-        {"name": "5", "color": "rgb(233, 233, 235)"},
-        {"name": "6", "color": "rgb(244, 244, 245)"}
+        { "name": "Base", "color": "#909399" },
+        { "name": "1", "color": "rgb(115, 118, 122)" },
+        { "name": "2", "color": "rgb(177, 179, 184)" },
+        { "name": "3", "color": "rgb(200, 201, 204)" },
+        { "name": "4", "color": "rgb(222, 223, 224)" },
+        { "name": "5", "color": "rgb(233, 233, 235)" },
+        { "name": "6", "color": "rgb(244, 244, 245)" }
       ],
       "Others": [
-        {"name": "Primary Text", "color": "#303133"},
-        {"name": "Regular Text", "color": "#606266"},
-        {"name": "Secondary Text", "color": "#909399"},
-        {"name": "Placeholder Text", "color": "#a8abb2"},
-        {"name": "1st Border", "color": "#dcdfe6"},
-        {"name": "2nd Border", "color": "#e4e7ed"},
-        {"name": "3rd Border", "color": "#ebeef5"},
-        {"name": "4th Border", "color": "#f2f6fc"}
+        { "name": "Primary Text", "color": "#303133" },
+        { "name": "Regular Text", "color": "#606266" },
+        { "name": "Secondary Text", "color": "#909399" },
+        { "name": "Placeholder Text", "color": "#a8abb2" },
+        { "name": "1st Border", "color": "#dcdfe6" },
+        { "name": "2nd Border", "color": "#e4e7ed" },
+        { "name": "3rd Border", "color": "#ebeef5" },
+        { "name": "4th Border", "color": "#f2f6fc" }
       ]
     }
   },
@@ -524,45 +524,45 @@
     "link": "https://element.eleme.cn/#/en-US/component/color",
     "colors": {
       "Brand Color": [
-        {"name": "Primary", "color":"#409eff"},
-        {"name": "1", "color":"rgb(83, 168, 255)"},
-        {"name": "2", "color":"rgb(102, 177, 255)"},
-        {"name": "3", "color":"rgb(121, 187, 255)"},
-        {"name": "4", "color":"rgb(140, 197, 255)"},
-        {"name": "5", "color":"rgb(160, 207, 255)"},
-        {"name": "6", "color":"rgb(179, 216, 255)"},
-        {"name": "7", "color":"rgb(198, 226, 255)"},
-        {"name": "8", "color":"rgb(236, 245, 255)"}
+        { "name": "Primary", "color": "#409eff" },
+        { "name": "1", "color": "rgb(83, 168, 255)" },
+        { "name": "2", "color": "rgb(102, 177, 255)" },
+        { "name": "3", "color": "rgb(121, 187, 255)" },
+        { "name": "4", "color": "rgb(140, 197, 255)" },
+        { "name": "5", "color": "rgb(160, 207, 255)" },
+        { "name": "6", "color": "rgb(179, 216, 255)" },
+        { "name": "7", "color": "rgb(198, 226, 255)" },
+        { "name": "8", "color": "rgb(236, 245, 255)" }
       ],
       "Success": [
-        {"name": "Primary", "color": "#67c23a"},
-        {"name": "1", "color": "rgb(225, 243, 216)"},
-        {"name": "2", "color": "rgb(240, 249, 235)"}
+        { "name": "Primary", "color": "#67c23a" },
+        { "name": "1", "color": "rgb(225, 243, 216)" },
+        { "name": "2", "color": "rgb(240, 249, 235)" }
       ],
       "Warning": [
-        {"name": "Primary", "color": "#e6a23c"},
-        {"name": "1", "color": "rgb(250, 236, 216)"},
-        {"name": "2", "color": "rgb(253, 246, 236)"}
+        { "name": "Primary", "color": "#e6a23c" },
+        { "name": "1", "color": "rgb(250, 236, 216)" },
+        { "name": "2", "color": "rgb(253, 246, 236)" }
       ],
       "Danger": [
-        {"name": "Primary", "color": "#f56c6c"},
-        {"name": "1", "color": "rgb(253, 226, 226)"},
-        {"name": "2", "color": "rgb(254, 240, 240)"}
+        { "name": "Primary", "color": "#f56c6c" },
+        { "name": "1", "color": "rgb(253, 226, 226)" },
+        { "name": "2", "color": "rgb(254, 240, 240)" }
       ],
       "Info": [
-        {"name": "Primary", "color": "#909399"},
-        {"name": "1", "color": "rgb(233, 233, 235)"},
-        {"name": "2", "color": "rgb(244, 244, 245)"}
+        { "name": "Primary", "color": "#909399" },
+        { "name": "1", "color": "rgb(233, 233, 235)" },
+        { "name": "2", "color": "rgb(244, 244, 245)" }
       ],
       "Others": [
-        {"name": "Primary Text", "color": "#303133"},
-        {"name": "Regular Text", "color": "#606266"},
-        {"name": "Secondary Text", "color": "#909399"},
-        {"name": "Placeholder Text", "color": "#c0c4cc"},
-        {"name": "1st Border", "color": "#dcdfe6"},
-        {"name": "2nd Border", "color": "#e4e7ed"},
-        {"name": "3rd Border", "color": "#ebeef5"},
-        {"name": "4th Border", "color": "#f2f6fc"}
+        { "name": "Primary Text", "color": "#303133" },
+        { "name": "Regular Text", "color": "#606266" },
+        { "name": "Secondary Text", "color": "#909399" },
+        { "name": "Placeholder Text", "color": "#c0c4cc" },
+        { "name": "1st Border", "color": "#dcdfe6" },
+        { "name": "2nd Border", "color": "#e4e7ed" },
+        { "name": "3rd Border", "color": "#ebeef5" },
+        { "name": "4th Border", "color": "#f2f6fc" }
       ]
     }
   }
