@@ -2,6 +2,8 @@
 
 Fetch most of the colors you want from a single click.
 
+> Preview at [my github pages](https://283375.github.io/quick-color-palettes/)
+
 ## Supported palettes
 
 - [Material Design colors (2014)](https://material.io/design/color/the-color-system.htm)

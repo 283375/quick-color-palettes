@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build-gh-pages": "vite build --base=/quick-color-palettes/",
     "preview": "vite preview"
   },
   "dependencies": {
