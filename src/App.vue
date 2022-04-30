@@ -5,6 +5,7 @@ import ClipboardJS from 'clipboard'
 import PalettesPane from '@components/Palettes/_PalettesPane.vue'
 import AlgorithmsPane from '@components/Algorithms/_AlgorithmsPane.vue'
 import UtilsPane from '@components/Utils/_UtilsPane.vue'
+import SettingsPane from '@components/Settings/_SettingsPane.vue'
 
 const message = useMessage()
 const clipboard = new ClipboardJS('.clipboard-enabled')
@@ -28,6 +29,9 @@ clipboard.on('error', function (e) {
     </n-tab-pane>
     <n-tab-pane name="Utils" display-directive="show:lazy">
       <UtilsPane />
+    </n-tab-pane>
+    <n-tab-pane name="Settings" display-directive="show:lazy">
+      <SettingsPane />
     </n-tab-pane>
   </n-tabs>
 </template>
