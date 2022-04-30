@@ -8,10 +8,10 @@ import LogoSvg from '@assets/logo.svg?component'
 const logoColor = ref('#00A2E8FF')
 const logoColorInstance = computed(() => new TinyColor(logoColor.value))
 
-const versions = computed(() => ({
-  __PACKAGE_JSON_VER__: __PACKAGE_JSON_VER__,
-  __GIT_VERSION__: __GIT_VERSION__,
-}))
+const versions = {
+  packageJsonVer: __PACKAGE_JSON_VER__,
+  gitVersion: __GIT_VERSION__,
+}
 
 const thanks = [
   { name: 'naive-ui', link: 'https://www.naiveui.com/' },
@@ -55,9 +55,9 @@ const thanks = [
         <div style="font-size: 2em">Quick Color Palettes</div>
         <div style="font-size: 1.5em">283375</div>
         <div style="font-size: 1em">
-          Version {{ versions.__PACKAGE_JSON_VER__ }}
+          Version {{ versions.packageJsonVer }}
         </div>
-        <div>(git describe: {{ versions.__GIT_VERSION__ }})</div>
+        <div>(git describe: {{ versions.gitVersion }})</div>
       </div>
     </n-grid-item>
 
