@@ -86,34 +86,43 @@ const colorBarTextColorStyle = computed(() => ({
 </script>
 
 <template>
-  <h3 v-if="horizontal" v-text="colorName" style="margin: 0.5em 0 0.2em 0"></h3>
-  <div class="color-bar-container" :style="colorBarContainerStyle">
-    <div
-      v-for="color in renderedColors"
-      :key="`${colorName}-${color.name}`"
-      class="color-bar clipboard-enabled"
-      :style="{
-        backgroundColor: color.colorInstance.toHexString(),
-        ...colorBarStyle,
-      }"
-      :data-clipboard-text="color.colorInstance.toHexString()"
-    >
-      <div class="color-bar-text-container" :style="colorBarTextContainerStyle">
-        <span
-          :style="{ fontSize: '1.2em', color: color.textColor }"
-          v-text="color.name"
+  <div>
+    <h3
+      v-if="horizontal"
+      v-text="colorName"
+      style="margin: 0.5em 0 0.2em 0"
+    ></h3>
+    <div class="color-bar-container" :style="colorBarContainerStyle">
+      <div
+        v-for="color in renderedColors"
+        :key="`${colorName}-${color.name}`"
+        class="color-bar clipboard-enabled"
+        :style="{
+          backgroundColor: color.colorInstance.toHexString(),
+          ...colorBarStyle,
+        }"
+        :data-clipboard-text="color.colorInstance.toHexString()"
+      >
+        <div
+          class="color-bar-text-container"
+          :style="colorBarTextContainerStyle"
         >
-        </span>
-        <span
-          class="color-bar-text-color"
-          :style="{
-            background: color.textBackgroundCss,
-            color: color.textSecondaryColor,
-            ...colorBarTextColorStyle
-          }"
-          v-text="color.colorInstance.toHexString()"
-        >
-        </span>
+          <span
+            :style="{ fontSize: '1.2em', color: color.textColor }"
+            v-text="color.name"
+          >
+          </span>
+          <span
+            class="color-bar-text-color"
+            :style="{
+              background: color.textBackgroundCss,
+              color: color.textSecondaryColor,
+              ...colorBarTextColorStyle,
+            }"
+            v-text="color.colorInstance.toHexString()"
+          >
+          </span>
+        </div>
       </div>
     </div>
   </div>
