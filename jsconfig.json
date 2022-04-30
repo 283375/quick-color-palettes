@@ -11,9 +11,6 @@
             ],
             "@/*": [
                 "./src/*"
-            ],
-            "@Algorithms/*": [
-                "./src/components/Algorithms/*"
             ]
         }
     }

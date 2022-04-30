@@ -4,5 +4,5 @@ import { ViteAliases } from 'vite-aliases'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), ViteAliases({useConfig: true})]
+  plugins: [vue(), ViteAliases({useConfig: true, deep: false})]
 })
