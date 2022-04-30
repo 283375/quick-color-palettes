@@ -12,7 +12,7 @@ import {
   NInputGroup,
   NTooltip,
 } from 'naive-ui'
-import { Copy24Regular } from '@vicons/fluent'
+import { Copy24Regular, Dismiss24Regular } from '@vicons/fluent'
 import { TinyColor, random as randomTinyColor } from '@ctrl/tinycolor'
 
 const currentColorInstance = ref(new TinyColor('#00A2E8FF'))
@@ -23,15 +23,20 @@ const currentColor = computed({
     currentColorInstance.value = new TinyColor(c)
   },
 })
+const replaceColorInstance = (newInstance) => {
+  currentColorInstance.value = newInstance
+}
+const randomColor = () => replaceColorInstance(randomTinyColor())
 const colorHistory = ref([])
-
-const randomColor = () => (currentColorInstance.value = randomTinyColor())
 
 watch(currentColorInstance, (newIns, oldIns) => {
   if (newIns.equals(oldIns)) return
   colorHistory.value.push(newIns)
   if (colorHistory.value.length === 10) colorHistory.value.shift()
 })
+const clearHistory = () => {
+  colorHistory.value = []
+}
 
 const currentColorValues = computed(() => ({
   RGB: currentColorInstance.value.toRgbString(),
@@ -62,48 +67,16 @@ const quickActionsModels = reactive({
   mixColorInstance: computed(() => new TinyColor(quickActionsModels.mix)),
 })
 
-const replaceColorInstance = (newInstance) => {
-  currentColorInstance.value = newInstance
-}
-
-const quickActions = {
-  lighten: () =>
-    replaceColorInstance(
-      currentColorInstance.value.lighten(quickActionsModels.lighten)
-    ),
-  darken: () =>
-    replaceColorInstance(
-      currentColorInstance.value.darken(quickActionsModels.darken)
-    ),
-  brighten: () =>
-    replaceColorInstance(
-      currentColorInstance.value.brighten(quickActionsModels.brighten)
-    ),
-  tint: () =>
-    replaceColorInstance(
-      currentColorInstance.value.tint(quickActionsModels.tint)
-    ),
-  shade: () =>
-    replaceColorInstance(
-      currentColorInstance.value.shade(quickActionsModels.shade)
-    ),
-  saturate: () =>
-    replaceColorInstance(
-      currentColorInstance.value.saturate(quickActionsModels.saturate)
-    ),
-  desaturate: () =>
-    replaceColorInstance(
-      currentColorInstance.value.desaturate(quickActionsModels.desaturate)
-    ),
-  spin: () =>
-    replaceColorInstance(
-      currentColorInstance.value.spin(quickActionsModels.spin)
-    ),
-  mix: () =>
+const quickActions = (method) => {
+  if (method === 'mix') {
     replaceColorInstance(
       currentColorInstance.value.mix(quickActionsModels.mixColorInstance)
-    ),
-  greyscale: () => replaceColorInstance(currentColorInstance.value.greyscale()),
+    )
+  } else {
+    replaceColorInstance(
+      currentColorInstance.value[method](quickActionsModels[method])
+    )
+  }
 }
 
 const handleSelect = (e) => {
@@ -144,7 +117,7 @@ const handleSelect = (e) => {
                   :min="0"
                   :max="100"
                 />
-                <n-button @click="quickActions[action]()">
+                <n-button @click="quickActions(action)">
                   {{ action.replace(action[0], action[0].toUpperCase()) }}
                 </n-button>
               </n-input-group>
@@ -156,18 +129,20 @@ const handleSelect = (e) => {
                   :min="-360"
                   :max="360"
                 />
-                <n-button @click="quickActions.spin()">Spin</n-button>
+                <n-button @click="quickActions('spin')">Spin</n-button>
               </n-input-group>
             </n-grid-item>
             <n-grid-item>
               <n-input-group>
                 <n-color-picker v-model:value="quickActionsModels.mix" />
-                <n-button @click="quickActions.mix()">Mix</n-button>
+                <n-button @click="quickActions('mix')">Mix</n-button>
               </n-input-group>
             </n-grid-item>
             <n-grid-item>
               <n-space justify="space-between">
-                <n-button @click="quickActions.greyscale()">Greyscale</n-button>
+                <n-button @click="quickActions('greyscale')"
+                  >Greyscale</n-button
+                >
                 <n-button type="warning" @click="randomColor()">
                   Feeling Lucky!
                 </n-button>
@@ -199,6 +174,16 @@ const handleSelect = (e) => {
                     </n-button>
                   </n-tooltip>
                 </template>
+                <n-button
+                  secondary
+                  type="warning"
+                  size="small"
+                  v-show="colorHistory.length > 0"
+                  @click="clearHistory()"
+                >
+                  <template #icon><Dismiss24Regular /></template>
+                  Clear
+                </n-button>
               </n-space>
             </n-grid-item>
           </n-grid>
