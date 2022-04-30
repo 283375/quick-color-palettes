@@ -86,7 +86,7 @@ const colorBarTextColorStyle = computed(() => ({
 </script>
 
 <template>
-  <div>
+  <div style="width: 100%; height: 100%">
     <h3
       v-if="horizontal"
       v-text="colorName"
