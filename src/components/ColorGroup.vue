@@ -62,7 +62,7 @@ const colorBarStyle = computed(() => {
     hoverBorderRadius: props.horizontal ? '0 0 10px 10px' : '0 10px 10px 0',
     position: 'relative',
     cursor: 'pointer',
-    transition: 'border-radius 0.6s, width 0.4s, height 0.4s',
+    transition: 'border-radius 0.6s, width 0.5s, height 0.5s',
     transitionTimingFunction: 'cubic-bezier(0.1, 1.4, 0.7, 1.35)',
   }
   return style
@@ -75,13 +75,13 @@ const colorBarTextContainerStyle = computed(() => ({
   flexDirection: props.horizontal ? 'column' : 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  transition: 'margin 0.5s cubic-bezier(0.1, 1.4, 0.7, 1.35)',
+  transition: 'margin 0.4s cubic-bezier(0.1, 1.4, 0.7, 1.35)',
 }))
 
 const colorBarTextColorStyle = computed(() => ({
   paddingRight: props.horizontal ? '' : '10px',
-  hoverPaddingRight: props.horizontal ? '' : '',
-  transition: 'padding 0.5s cubic-bezier(0.1, 1.4, 0.7, 1.35)',
+  hoverPaddingRight: '0px',
+  transition: 'padding 0.4s cubic-bezier(0, 1, 1, 1)',
 }))
 </script>
 
