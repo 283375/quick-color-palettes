@@ -3,7 +3,8 @@ import { ref, computed } from 'vue'
 import {
   NCard,
   NForm,
-  NFormItem,
+  NGrid,
+  NFormItemGridItem,
   NColorPicker,
   NSwitch,
   NSpace,
@@ -40,36 +41,37 @@ const themeVars = useThemeVars()
   <n-card>
     <template #header>Readability</template>
 
-    <n-form inline>
-      <n-form-item label="Text Color">
-        <n-color-picker
-          v-model:value="textColor"
-          placement="top-start"
-          style="width: 200px"
-        />
-      </n-form-item>
-      <n-form-item label="Level">
-        <n-switch
-          v-model:value="level"
-          checked-value="AAA"
-          unchecked-value="AA"
-          style="margin-left: 5px"
-        >
-          <template #checked>AAA</template>
-          <template #unchecked>AA</template>
-        </n-switch>
-      </n-form-item>
-      <n-form-item label="Size">
-        <n-switch
-          v-model:value="size"
-          checked-value="large"
-          unchecked-value="small"
-          style="margin-left: 5px"
-        >
-          <template #checked>large</template>
-          <template #unchecked>small</template>
-        </n-switch>
-      </n-form-item>
+    <n-form>
+      <n-grid cols="2">
+        <n-form-item-grid-item label="Text Color" span="2">
+          <n-color-picker
+            v-model:value="textColor"
+            placement="top-start"
+          />
+        </n-form-item-grid-item>
+        <n-form-item-grid-item label="Level">
+          <n-switch
+            v-model:value="level"
+            checked-value="AAA"
+            unchecked-value="AA"
+            style="margin-left: 5px"
+          >
+            <template #checked>AAA</template>
+            <template #unchecked>AA</template>
+          </n-switch>
+        </n-form-item-grid-item>
+        <n-form-item-grid-item label="Size">
+          <n-switch
+            v-model:value="size"
+            checked-value="large"
+            unchecked-value="small"
+            style="margin-left: 5px"
+          >
+            <template #checked>large</template>
+            <template #unchecked>small</template>
+          </n-switch>
+        </n-form-item-grid-item>
+      </n-grid>
     </n-form>
 
     <n-space vertical style="margin-bottom: 10px">
@@ -92,13 +94,12 @@ const themeVars = useThemeVars()
           padding: '10px 20px',
           color: textColorInstance.toRgbString(),
           backgroundColor: colorInstance.toRgbString(),
-          fontSize: size === 'large' ? '2em' : '1em'
+          fontSize: size === 'large' ? '2em' : '1em',
         }"
       >
         Preview text here.<br />
-        Lorem ipsum dolor sit amet te dolor,
-        ut nulla luptatum mazim dolores quis dolore sed,
-        clita sit ea erat.
+        Lorem ipsum dolor sit amet te dolor, ut nulla luptatum mazim dolores
+        quis dolore sed, clita sit ea erat.
       </div>
     </div>
   </n-card>

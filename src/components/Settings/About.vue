@@ -29,7 +29,7 @@ const thanks = [
 </script>
 
 <template>
-  <n-grid cols="1 m:2" responsive="screen">
+  <n-grid cols="1 m:2" responsive="screen" :x-gap="2" :y-gap="12">
     <n-grid-item>
       <div
         :style="{
@@ -40,11 +40,6 @@ const thanks = [
           fill: logoColorInstance.toRgbString(),
         }"
       >
-        <n-color-picker
-          v-model:value="logoColor"
-          placement="right"
-          style="max-width: 250px"
-        />
         <LogoSvg
           :style="{
             display: 'block',
@@ -54,10 +49,9 @@ const thanks = [
         />
         <div style="font-size: 2em">Quick Color Palettes</div>
         <div style="font-size: 1.5em">283375</div>
-        <div style="font-size: 1em">
-          Version {{ versions.packageJsonVer }}
-        </div>
+        <div style="font-size: 1em">Version {{ versions.packageJsonVer }}</div>
         <div>(git describe: {{ versions.gitVersion }})</div>
+        <n-color-picker v-model:value="logoColor" style="max-width: 250px" />
       </div>
     </n-grid-item>
 

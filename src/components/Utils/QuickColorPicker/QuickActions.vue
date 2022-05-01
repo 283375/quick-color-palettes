@@ -48,7 +48,7 @@ const quickActions = (method) => {
 <template>
   <n-card>
     <template #header>Quick Actions</template>
-    <n-grid cols="1 200:2" :x-gap="5" :y-gap="10">
+    <n-grid cols="1 400:2" :x-gap="5" :y-gap="10">
       <n-grid-item
         v-for="action in [
           'lighten',
